@@ -10,6 +10,15 @@
       src="https://kit.fontawesome.com/1ebd9cedb1.js"
       crossorigin="anonymous"
     ></script>
+    <script src="app.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("6aeod9h4n8krKNy04");
+   })();
+</script>
   </head>
   <body>
     <section id="landing-page">
@@ -18,11 +27,11 @@
           <img id="personal-logo" src="assets/logo.svg" alt="Logo" />
         </figure>
         <ul class="nav__link--list">
-          <li class="nav__link">
+          <li class="nav__link nav__link--anchor">
             <a
               href="#"
               class="
-                nav__link--anchor
+                
                 link__hover-effect link__hover-effect--black
               "
               >About</a
@@ -38,7 +47,7 @@
               >Projects</a
             >
           </li>
-          <li class="nav__link">
+          <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
               class="
@@ -48,7 +57,7 @@
               >Contact</a
             >
           </li>
-          <li class="nav__link click">
+          <li class="nav__link click" onclick="toggleContrast()">
             <a
               href="#"
               class="
@@ -68,7 +77,7 @@
             I'm a <b class="orange">Frontend Software Engineer</b> with a strong
             passion for building web applications with great user experiences.
             <br />
-            Here's a bit more <b class="orange">about me.</b>
+            Here's a bit more <b class="orange click" onclick="toggleModal()">about me.</b>
           </p>
           <div class="social__list">
             <a
@@ -92,12 +101,95 @@
           </div>
         </div>
       </header>
-      <button class="mail__btn click">
+      <button class="mail__btn click" onclick="toggleModal()">
         <i class="fas fa-envelope"></i>
       </button>
       <a href="#projects" class="scroll">
         <div class="scroll__icon click"></div>
       </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title modal__title--about">
+            Here's a bit about me.
+          </h3>
+          <h4 class="modal__sub-title modal__sub-title--about">
+            Frontend Software Engineer
+          </h4>
+          <p class="modal__para modal__para--about">
+            I'm a 22 year-old U.S.-based
+            <b class="orange">Frontend Software Engineer</b> ith a strong
+            passion for developing websites with great
+            <b class="orange">user experiences.</b>
+            <br />
+            I'm self-taught, using every day to work on extremely difficult
+            challenges and learn
+            <b class="orange">best practice methodologies</b> seen in top-tech
+            work environments.
+          </p>
+          <div class="modal__languages">
+            <figure class="modal__language">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt="Html Logo"
+                class="language__img"
+              />
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
+                alt="CSS Logo"
+                class="language__img"
+              />
+              <span class="language__name">CSS</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt="JavaScript Logo"
+                class="language__img"
+              />
+              <span class="language__name">Javascript</span>
+            </figure>
+            <figure class="modal__language">
+              <img
+                src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png"
+                alt="React Logo"
+                class="language__img"
+              />
+              <span class="language__name">React</span>
+            </figure>
+          </div>
+        </div>
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+          <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+          <h4 class="modal__sub-title modal__sub-title--contact">
+            I'm currently open to new opportunities.
+          </h4>
+          <form action="" class="contact__form" onsubmit="contact(event)">
+              <div class="form__item">
+                  <label class="form__item--label"></label>Name</label>
+                  <input type="text" name="user_name" class="input" ></input>
+              </div>
+              <div class="form__item">
+                  <label class="form__item--label"></label>Email</label>
+                  <input type="email" name="email" class="input" ></input>
+              </div>
+              <div class="form__item">
+                  <label class="form__item--label"></label>Message</label>
+                  <textarea type="text" name="message" class="input" ></textarea>
+              </div>
+              <button id="button__submit" class="form__submit">Send it my way!</button>
+          </form>
+          <div class="modal__overlay modal__overlay--loading">
+              <i class="fas fa-spinner"></i>
+          </div>
+          <div class="modal__overlay modal__overlay--success">
+              Thanks for the message! I look forward to speaking with you soon.
+          </div>
+        </div>
+      </div>
     </section>
     <section id="projects">
       <div class="container">
@@ -151,6 +243,7 @@
               class="
                 footer__social--link
                 link__hover-effect link__hover-effect--white
+                click
               "
             >
               GitHub
@@ -160,15 +253,17 @@
               class="
                 footer__social--link
                 link__hover-effect link__hover-effect--white
+                click
               "
             >
               LinkedIn
             </a>
             <a
-              href=""
+              onclick="toggleModal()"
               class="
                 footer__social--link
                 link__hover-effect link__hover-effect--white
+                click
               "
             >
               Contact
@@ -178,7 +273,9 @@
               class="
                 footer__social--link
                 link__hover-effect link__hover-effect--white
+                click
               "
+              
             >
               Resume
             </a>
@@ -189,3 +286,8 @@
     </footer>
   </body>
 </html>
+
+
+<!-- access: AKIASKGP4ZT5DJMDWXPU
+
+SA: S7F56ZHOuUvAbwzwYCvCdi996WNcvSllIS+g7zed -->
