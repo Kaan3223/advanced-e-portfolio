@@ -696,4 +696,17 @@ small smartphones, tablets, large smartphones
     .header__para {
         font-size: 20px;
     }
+    .modal {
+        top: 0;
+        left: 0;
+        transform: none;
+        height: auto;
+        width: 100%;
+        flex-direction: column-reverse;
+        border-radius: 0;
+    }
+    .modal__half {
+        width: 100%;
+    }
 }
+
